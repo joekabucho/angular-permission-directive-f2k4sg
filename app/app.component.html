@@ -1,0 +1,26 @@
+<h1>Custom Permission Directive</h1>
+
+<button (click)="setUser1()">User 1</button>
+<button (click)="setUser2()">User 2</button>
+
+<pre>{{ currentUser | async | json }}</pre>
+
+<hr />
+
+<div class="demo-container">
+  <strong>AND concatenation:</strong>
+  <div *hasPermission="['can_write', 'can_read']">
+    Only users with <code>can_write</code> <strong>AND</strong> <code>can_read</code> can see this.
+  </div>
+</div>
+
+<div class="demo-container">
+  <strong>OR concatenation:</strong>
+  <div *hasPermission="['can_write', 'can_read']; op 'OR'">
+    Only users with <code>can_write</code> <strong>OR</strong> <code>can_read</code> can see this.
+  </div>
+</div>
+
+<hr />
+
+<i>Liked it? Check out <a href="https://juristr.com/blog">my blog</a> or <a href="https://twitter.com/juristr">Follow me on Twitter</a></i>
